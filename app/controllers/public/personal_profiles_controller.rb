@@ -20,7 +20,7 @@ module Public
     def update
       @profile = current_user.personal_profile(current_conference)
 
-      if @profile.update_attributes(profile_params)
+      if @profile.update(profile_params)
         flash[:notice] = t("views.personal_profiles.successfully_updated")
         redirect_to root_path
       else

@@ -27,10 +27,9 @@
                 .media
                   .media-left
                     - if profile.present?
-                      = image_tag(profile.picture.thumb.url)
+                      = image_tag(profile.picture.variant(resize_to_fill: [50, 50]))
                     - else
-                      = image_tag(PictureUploader.new.thumb.url)
-
+                      = image_tag('avatar-placeholder')
                   .media-body
                     h4.media-heading
                       - if profile.try(:name).present?
