@@ -1,14 +1,14 @@
 - User-facing:
-    - Event proposal: lecture, workshop, open space (CRUD)
-    - Volunteership
+    - # Event proposal: lecture, workshop, open space (CRUD)
+    - # Volunteership
     - Sponsorship
 
 - Admin:
     - # Create a conference, halls, tracks
     - # Starting a CFP
     - # conferences#show -> admin dashboard
-    - volunteers#index -> approved volunteers
-    - sponsorships#index -> generate token, links to send around
+    - # volunteers#index -> approved volunteers
+    - # sponsorships#index -> generate token, links to send around
     - scheduling -> calendar with events
 
     - # proposals#index -> undecided events, grouped by user
@@ -17,12 +17,11 @@
     - users:
       - # edit profile: image upload and stuff
       - # show profile
-      - Edit profiles instead
+      - # Edit profiles instead
 
-    - Home-area user CRUD
+    - # Home-area user CRUD
     - # Controller before_action that checks for current_conference
-    - Devise view styling
+    - # Devise view styling
 
 Notes:
   - .row > .col-lg-12 -> put that outside of the "yield"?
-  - human_attribute_name -> create a short alias?
