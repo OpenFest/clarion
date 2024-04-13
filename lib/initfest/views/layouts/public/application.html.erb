@@ -11,8 +11,8 @@
       <% end %>
     </title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <%= stylesheet_link_tag    "initfest/application", media: "all" %>
-    <%= javascript_include_tag "initfest/application" %>
+    <%= stylesheet_link_tag    "initfest/application", media: "all", nopush: false %>
+    <%= javascript_include_tag "initfest/application", nopush: false %>
     <%= csrf_meta_tags %>
   </head>
   <body>
