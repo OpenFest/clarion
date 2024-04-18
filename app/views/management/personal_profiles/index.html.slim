@@ -29,7 +29,7 @@
                     - if profile.present?
                       = image_tag(profile.picture.variant(resize_to_fill: [50, 50]))
                     - else
-                      = image_tag('avatar-placeholder')
+                      = image_tag('avatar-placeholder.png')
                   .media-body
                     h4.media-heading
                       - if profile.try(:name).present?
