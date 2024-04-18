@@ -5,12 +5,14 @@
 
   .form-inputs
     .input
-      = image_tag @volunteer.picture.variant(resize_to_limit: [150, 150]) if @volunteer.picture.attached?
-      = f.input :picture, as: :file, direct: true, wrapper: false
+      = image_tag(@volunteer.picture.variant(resize_to_limit: [150, 150])) if @volunteer.picture.attached?
+      = f.hidden_field :picture, value: @volunteer.picture.signed_id if @volunteer.picture.attached?
+      = f.input :picture, as: :file, required: false, direct: true, wrapper: false, input_html: {direct_upload: true}
+
     = f.input :name, autofocus: true
     = f.input :email
     = f.input :phone, input_html: {value: @volunteer.phone.try(:phony_formatted, format: :international)}
-    = f.association :volunteer_teams, as: :check_boxes, wrapper: :default, collection: current_conference.volunteer_teams
+    = f.association :volunteer_team, as: :radio_buttons, wrapper: :default, collection: current_conference.volunteer_teams
     = f.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, checked: (@volunteer.language.presence || I18n.locale)
     = f.input :tshirt_size, collection: Volunteer::TSHIRT_SIZES, as: :radio_buttons, wrapper: :default, checked: (@volunteer.tshirt_size.presence || :m)
     = f.input :tshirt_cut, collection: Volunteer::TSHIRT_CUTS, as: :radio_buttons, wrapper: :default, checked: (@volunteer.tshirt_cut.presence || :unisex)

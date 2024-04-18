@@ -32,7 +32,7 @@
         thead
           tr
             th = t '.profile'
-            th = Volunteer.human_attribute_name :volunteer_teams
+            th = Volunteer.human_attribute_name :volunteer_team
             th.actions
         tbody
           - @volunteers.each do |volunteer|
@@ -50,7 +50,7 @@
                     p
                       = icon(:envelope, volunteer.email)
               td
-                = volunteer.volunteer_teams.map(&:name).join(', ')
+                = volunteer.volunteer_team.name
               td.actions
                 div.btn-group.btn-group-sm
                   = action_buttons(current_conference, volunteer, [:show, :edit])

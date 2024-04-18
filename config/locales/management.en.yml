@@ -1,14 +1,65 @@
 en:
-  are_you_sure: Are you sure?
+  are_you_sure: "Are you sure?"
   view: View
   home: Home
+  more_about_user: ""
   status:
     undecided: Undecided
     approved: Approved
     rejected: Rejected
     backup: Back-up
+  events:
+    metadata: ""
   management:
+    volunteers:
+      index:
+        all: ""
+        profile: ""
+        total: ""
+    personal_profiles:
+      index:
+        no_profile: ''
+        total: ""
+      create:
+        successfully_created: ""
+      show:
+        contacts: ""
+        event_propositions: ""
+        talk_history: ""
+        comments_from_the_audience: ""
+        no_comments_received: ""
+        private_email: ""
+    conferences:
+      update_vote_data:
+        vote_data_successfully_updated: ""
+        error_during_vote_data_save: ""
+        error_during_connection_with_voting_endpoint: ""
+      vote_results:
+        back_to: ""
+        vote_results: ""
+        vote_data_never_updated: ""
+        voting_results: ""
+        vote_data_updated_at: ""
+        vote_ratio: ""
+        fetch_vote_results: ""
+        percent: ""
+        rank: ""
+        unranked: ""
+        export: ""
+      show:
+        full_vote_results: ""
+        vote_data_never_updated: ""
+        voting_results: ""
+        vote_data_updated_at: ""
+        vote_ratio: ""
+        summary: ''
+        cfp_status: ''
+        fetch_vote_results: ""
+        percent: ""
+        rank: ""
     events:
+      update:
+        event_successfully_updated: ""
       show:
         average_grade: Average grade
         total_feedback_grades:
@@ -17,3 +68,57 @@ en:
         no_feedback_received: No feedback received (yet)
         no_comments_received: No comments received (yet)
         comments: Comments
+        top_conflicts: ""
+        between_approved_events: ""
+        no_approved_events: ""
+        rank: ""
+        review: ""
+        conflicts: ""
+        percent: ""
+      speaker:
+        continue: ""
+        other_event_propositions: ""
+        the_participant_has_not_created_a_profile: ""
+        private_email: ""
+        no_other_event_propositions: ""
+        no_profile: ''
+        profile_from: ""
+        create_profile: ""
+        previous_event_propositions: ''
+        contacts: ""
+      conflicts:
+        conflicts: ""
+        conflicts_of: ""
+        percent: ""
+        hint_html: ""
+      edit:
+        edit: ""
+      index:
+        all: ""
+        total: ""
+      event:
+        create_profile: ""
+      no_records:
+        no_records_found: ''
+    feedback:
+      index:
+        feedback: ""
+        overall_organisation: ""
+        comments: ""
+        average_grade: ""
+        total_feedback_grades:
+          one: ''
+          other: ''
+        no_feedback_received: ""
+        no_comments_received: ""
+        events: ""
+    shared:
+      feedback:
+        anonymous: ""
+        about: ""
+  ratings:
+    poor: ""
+    average: ""
+    good: ""
+    very_good: ""
+    excellent: ""

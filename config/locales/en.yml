@@ -1,21 +1,21 @@
 en:
   public:
     event_feedbacks:
-      new: &new_feedbacks_en
-        feedback_for: Rating '%{title}'
+      new: &new_feedbacks_bg
+        feedback_for: "Rating '%{title}'"
         submit: Submit
         success: The feedback was submitted successfully
     conference_feedbacks:
-      new: *new_feedbacks_en
+      new: *new_feedbacks_bg
       index:
         feedback_for_the_conference: Feedback for the conference
-        general_feedback_for: Submit general feedback for "%{title}"
-        change_general_feedback_for: Resubmit general feedback for "%{title}"
-        feedback_for: Submit feedback for "%{title}"
-        change_feedback_for: Resubmit feedback for "%{title}"
-        by: by %{authors}
+        general_feedback_for: "Submit general feedback for \"%{title}\""
+        change_general_feedback_for: "Resubmit general feedback for \"%{title}\""
+        feedback_for: "Submit feedback for \"%{title}\""
+        change_feedback_for: "Resubmit feedback for \"%{title}\""
+        by: "by %{authors}"
         feedback_incentive: We would be happy to receive your feedback about the conference and its events.
-  abstract: Abstract
+  abstract: "Abstract"
   helpers:
     submit:
       event:
@@ -25,68 +25,90 @@ en:
         create: "Submit application"
         update: "Update application"
   actions:
-    are_you_sure: Are you sure?
+    are_you_sure: "Are you sure?"
+    clone:
+      button: "Clone %{model}"
+      title: "Clone existing %{model}"
     create:
-      button: Create %{model}
-      title: 'Create a new #{model}'
+      button: "Create %{model}"
+      title: "Create a new #{model}"
     destroy:
-      button: Destroy %{model}
+      button: "Destroy %{model}"
     edit:
-      button: Edit %{model}
-      title: Editing %{model}
+      button: "Edit %{model}"
+      title: "Editing %{model}"
     index:
-      button: Browse %{models}
-      title: Browse %{models}
+      button: "Browse %{models}"
+      title: "Browse %{models}"
     new:
-      title_f: New %{model}
-      title_m: New %{model}
+      title_f: "New %{model}"
+      title_m: "New %{model}"
+      title_c: "New %{model}"
     view:
-      button: View %{model}
-      title: Viewing %{model}
+      button: "View %{model}"
+      title: "Viewing %{model}"
+  attributes:
+    average_rating: Average rating
+    rating: Rating
   activerecord:
     attributes:
       feedback:
         author_email:  E-mail
         rating: Rating
         comment: Comment
+      participation:
+        participant: Participant
+        approved: Confirmed by participant
+      proposition:
+        status: Status
+        statuses:
+          undecided: Undecided
+          approved: Approved
+          rejected: Rejected
+          backup: Backup
       conference:
-        description: Description
+        participants: "Participants"
+        description: "Description"
         email: E-mail
-        end_date: End date
-        host_name: Domain name
-        start_date: Start date
-        title: Title
+        end_date: "End date"
+        host_name: "Domain name"
+        start_date: "Start date"
+        planned_cfp_end_date: "Planned CFP End date"
+        title: "Title"
       event:
-        abstract: Abstract
-        agreement: I accept
-        description: Description
-        language: Language
-        length: Length
-        notes: Notes
-        subtitle: Sub-title
-        title: Title
-        track: Track
-        user: Speaker
-        feedbacks: Feedback
+        conference: "Conference"
+        status: "Statis"
+        abstract: "Abstract"
+        agreement: "I accept"
+        description: "Description"
+        language: "Language"
+        length: "Length"
+        notes: "Notes"
+        subtitle: "Sub-title"
+        title: "Title"
+        track: "Track"
+        rank: "Rank"
+        user: "Speaker"
+        participants: "Participants"
+        feedbacks: "Feedback"
       event_type:
-        description: Description
-        name: Name
+        description: "Description"
+        name: "Name"
         minimum_length: Minimum length
         maximum_length: Maximum length
       hall:
-        name: Name
+        name: "Name"
       personal_profile:
-        biography: Short biography
-        first_name: First name
+        biography: "Short biography"
+        first_name: "First name"
         github: Github account
-        last_name: Last name
-        mobile_phone: Mobile phone
-        organisation: Organization
-        picture: Photo
-        public_email: Public e-mail
+        last_name: "Last name"
+        mobile_phone: "Mobile phone"
+        organisation: "Organization"
+        picture: "Photo"
+        public_email: "Public e-mail"
         twitter: Twitter account
       volunteer:
-        language: Language
         picture: Picture
         name: Name
         email: E-mail
@@ -96,109 +118,125 @@ en:
         food_preferences: Food preference
         previous_experience: Previous experience
         notes: Notes
-        volunteer_teams: Екипи доброволци
-      track:
-        color: Color
-        description: Description
-        name: Name
-      user:
-        current_password: Current password
-        email: E-mail
         language: Language
-        password: Password
-        password_confirmation: Password confirmation
-        remember_me: Remember me
+        volunteer_team: Volunteer team
+        additional_volunteer_teams: Additional volunteer teams
+      track:
+        color: "Color"
+        description: "Description"
+        name: "Name"
+      user:
+        current_password: "Current password"
+        email: E-mail
+        language: "Language"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        remember_me: "Remember me"
+      volunteer_team:
+        name: Name
+        description: Description
+        color: Color
     errors:
       models:
         event:
           attributes:
             track:
-              must_be_a_valid_track: must be one of the listed lecture tracks
+              must_be_a_valid_track: "must be one of the listed lecture tracks"
             length:
               must_be_between: "must be between %{minimum} and %{maximum} minutes"
         personal_profile:
           attributes:
             github:
-              invalid: can contain only alphabet characters, digits or a dash and cannot start with a dash
+              invalid: "can contain only alphabet characters, digits or a dash and cannot start with a dash"
             twitter:
-              invalid: can contain a maximum of 15 symbols that need to be alphabet characters, digits or an underscore
+              invalid: "can contain a maximum of 15 symbols that need to be alphabet characters, digits or an underscore"
         user:
           attributes:
             email:
-              invalid: is not a valid e-mail address
+              invalid: "is not a valid e-mail address"
             password_confirmation:
-              confirmation: does not match the password
+              confirmation: "does not match the password"
         volunteer:
           attributes:
             picture:
               invalid_content_type: "invalid picture format"
+            volunteer_team:
+              invalid_volunteer_team: "invalid volunteer team"
+            additional_volunteer_teams:
+              invalid_volunteer_team: "invalid volunteer team"
     models:
+      feedback:
+        one: Feedback
+        other: Feedback
+      participation:
+        one: Participation
+        other: Participation
       volunteership:
         one: volunteership
         other: volunteerships
       conference:
-        one: conference
-        other: conferences
+        one: "conference"
+        other: "conferences"
       event:
-        one: Suggestion
-        other: Suggestions
+        one: "Suggestion"
+        other: "Suggestions"
       event_type:
-        one: event type
-        other: event types
+        one: "event type"
+        other: "event types"
       hall:
-        one: hall
-        other: halls
+        one: "hall"
+        other: "halls"
       lecture:
-        one: Lecture
-        other: Lectures
+        one: "Lecture"
+        other: "Lectures"
       personal_profile:
-        one: Profile
-        other: Profiles
+        one: "Profile"
+        other: "Profiles"
       proposition:
-        one: Proposition
-        other: Propositions
+        one: "Proposition"
+        other: "Propositions"
       sponsorship_offer:
-        one: sponsor
-        other: sponsors
+        one: "sponsor"
+        other: "sponsors"
       track:
-        one: track
-        other: tracks
+        one: "track"
+        other: "tracks"
       volunteer_team:
         one: "volunteer team"
         other: "volunteer teams"
       user:
-        one: User
-        other: Users
+        one: "User"
+        other: "Users"
       volunteer:
-        one: volunteer
-        other: volunteers
+        one: "volunteer"
+        other: "volunteers"
       workshop:
-        one: Workshop
-        other: Workshops
-  change_pass: Change password
-  click_to_unlock: Click the link below to unlock
-  confirm_by_clicking: You can confirm your account by clicking the link below
+        one: "Workshop"
+        other: "Workshops"
+  change_pass: "Change password"
+  click_to_unlock: "Click the link below to unlock"
+  confirm_by_clicking: "You can confirm your account by clicking the link below"
   confirmations:
-    did_not_receive_confirmation_instructions: You have not received confirmation instructions?
-    resend: Send
-    resend_confirmation: Send confirmation E-mail
-  description: Description
-  did_not_get_confirmation: You did not receive confirmation instructions?
-  did_not_get_unlock: You did not receive unlock instructions?
+    did_not_receive_confirmation_instructions: "You have not received confirmation instructions?"
+    resend: "Send"
+    resend_confirmation: "Send confirmation E-mail"
+  description: "Description"
+  did_not_get_confirmation: "You did not receive confirmation instructions?"
+  did_not_get_unlock: "You did not receive unlock instructions?"
   do_not_want_pass_reset1: "If you don't want to change your password, please delete this E-mail."
-  do_not_want_pass_reset2: Your password will not be change unless you click the link above and enter a new password.
-  edit: Edit
-  edit_speaker_profile: Edit profile
-  edit_talk: Edit talk
-  edit_title: 'track "%{track}", duration: %{len} min'
-  edit_workshop: Edit workshop
-  enter: Enter
+  do_not_want_pass_reset2: "Your password will not be change unless you click the link above and enter a new password."
+  edit: "Edit"
+  edit_speaker_profile: "Edit profile"
+  edit_talk: "Edit talk"
+  edit_title: "track \"%{track}\", duration: %{len} min"
+  edit_workshop: "Edit workshop"
+  enter: "Enter"
   errors:
     messages:
-      improbable_phone: not a valid phone number
+      improbable_phone: "not a valid phone number"
   event_mailer:
     acceptance_notification:
-      subject: Your submission for %{conference} for the %{submission_type} "%{title}" has been approved
+      subject: "Your submission for %{conference} for the %{submission_type} \"%{title}\" has been approved"
     rejection_notification:
       subject: "Your submission for %{conference} for the %{submission_type} \"%{title}\" has not been approved"
   volunteer_mailer:
@@ -206,77 +244,77 @@ en:
       subject: "Your application for \"volunteership\" on %{conference_name} was received"
   event_states:
     approved:
-      one: Approved
-      other: Approved
+      one: "Approved"
+      other: "Approved"
     backup:
-      one: Backup
-      other: Backup
+      one: "Backup"
+      other: "Backup"
     confirmed:
-      one: Confirmed
-      other: Confirmed
+      one: "Confirmed"
+      other: "Confirmed"
     rejected:
-      one: Rejected
-      other: Rejected
+      one: "Rejected"
+      other: "Rejected"
     undecided:
-      one: Undecided
-      other: Undecided
-  expected_validation: Awaiting confirmation of %{email}
-  hello: Hello, %{name}
-  home: Home
+      one: "Undecided"
+      other: "Undecided"
+  expected_validation: "Awaiting confirmation of %{email}"
+  hello: "Hello, %{name}"
+  home: "Home"
   home_title: "%{conference} - call for participation"
-  lecture_was_successfully_confirmed: Your lecture was confirmed successfully
-  license_notice: Please keep in mind that the presentations will later be published under the CC-BY-ND (Creative Commons – Attribution – No derivatives) license.
+  lecture_was_successfully_confirmed: "Your lecture was confirmed successfully"
+  license_notice: "Please keep in mind that the presentations will later be published under the CC-BY-ND (Creative Commons – Attribution – No derivatives) license."
   locales:
-    bg: Bulgarian
+    bg: "Bulgarian"
     en: English
-  login: Login
-  login_data: Account information
-  login_with: Log in with %{with}
-  logout: Log out
-  lostpass: Forgotten password?
-  meta_data: 'Language: %{language}, track: "%{track}", duration: %{length} m.'
-  my_talks: My lecture submissions
-  my_workshops: My workshop submissions
-  new_workshop_title: Submit a workshop
-  no_talks_submitted: You are yet to submit a lecture
-  no_workshops_submitted: You are yet to submit a workshop
-  of_motto: share the freedom
-  pass_update_hint1: Do not fill this in unless you want to change your password
+  login: "Login"
+  login_data: "Account information"
+  login_with: "Log in with %{with}"
+  logout: "Log out"
+  lostpass: "Forgotten password?"
+  meta_data: "Language: %{language}, track: \"%{track}\", duration: %{length} m."
+  my_talks: "My lecture submissions"
+  my_workshops: "My workshop submissions"
+  new_workshop_title: "Submit a workshop"
+  no_talks_submitted: "You are yet to submit a lecture"
+  no_workshops_submitted: "You are yet to submit a workshop"
+  of_motto: "share the freedom"
+  pass_update_hint1: "Do not fill this in unless you want to change your password"
   pass_update_hint2: "Fill this in if you'd like to change your password or E-mail address"
   passwords:
-    change_your_password: Change your password
-    confirm_your_new_password: Password confirmation
-    forgotten_password: Forgotten password
-    new_password: New password
-    send_instructions: Send instructions
-  please_fill_in_your_speaker_profile: Please fill in the data for your personal profile
-  registration: Registration
+    change_your_password: "Change your password"
+    confirm_your_new_password: "Password confirmation"
+    forgotten_password: "Forgotten password"
+    new_password: "New password"
+    send_instructions: "Send instructions"
+  please_fill_in_your_speaker_profile: "Please fill in the data for your personal profile"
+  registration: "Registration"
   registrations:
-    account_cancelation: Account deletion
-    add_phone_number: Add a phone number
-    are_you_sure: Are you sure you want to delete your registration
-    cancel_my_account: Delete my account
-    edit_account: Edit account
+    account_cancelation: "Account deletion"
+    add_phone_number: "Add a phone number"
+    are_you_sure: "Are you sure you want to delete your registration"
+    cancel_my_account: "Delete my account"
+    edit_account: "Edit account"
     leave_blank_if_you_do_not_want_to_change: "leave blank if you don't want to change it"
-    minimum_characters: at least %{minimum} symbols
-    sign_me_up: Sign me up
-    sign_up: Registration
-    unhappy: You are not happy?
-    update: Update
-    we_need_your_current_password: we need your current password in order to confirm the changes
-  resend_instructions_btn: Resend instructions
-  resend_instructions_header: Resend confirmation instructions
-  resend_unlock_instructions_title: Resend unlock instructions
-  send_lostpass_instructions: Resend lost password instructions
+    minimum_characters: "at least %{minimum} symbols"
+    sign_me_up: "Sign me up"
+    sign_up: "Registration"
+    unhappy: "You are not happy?"
+    update: "Update"
+    we_need_your_current_password: "we need your current password in order to confirm the changes"
+  resend_instructions_btn: "Resend instructions"
+  resend_instructions_header: "Resend confirmation instructions"
+  resend_unlock_instructions_title: "Resend unlock instructions"
+  send_lostpass_instructions: "Resend lost password instructions"
   sessions:
-    remember_me: Remember me
-    sign_in: Sign in
-    sign_in_heading: Sign in
-    sign_in_with: Sign in with %{with}
-    sign_out: Sign out
+    remember_me: "Remember me"
+    sign_in: "Sign in"
+    sign_in_heading: "Sign in"
+    sign_in_with: "Sign in with %{with}"
+    sign_out: "Sign out"
   simple_form:
     error_notification:
-      default_message: 'Please see the errors below:'
+      default_message: "Please see the errors below:"
     options:
       volunteer:
         tshirt_size:
@@ -295,82 +333,84 @@ en:
           vegan: Vegan
     hints:
       feedback:
-        author_email: "Your E-mail address if you'd like to share it with us"
+        author_email: Your E-mail address if you'd like to share it with us
         rating: Select your rating for the event
         comment: Express your opinion in greater detail here
       conference:
-        description: Conference description
+        description: "Conference description"
         email: Orga team email
-        end_date: Last day of the conference
-        start_date: First day of the conference
-        title: Title of the conference
+        end_date: "Last day of the conference"
+        start_date: "First day of the conference"
+        planned_cfp_end_date: "The day before all speakers must have submitted their proposals. This field is informative, it is not enforced."
+        title: "Title of the conference"
         tracks:
-          color: Color
-          description: Short description
-          name: Track name
+          color: "Color"
+          description: "Short description"
+          name: "Track name"
       event:
-        abstract: An abstract of the event that will be published for the attendees to read (around 1 paragraph)
-        agreement: Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license
-        description: Detailed description of the event (several paragraphs)
-        language: "Language in which the event will be lead"
+        abstract: "An abstract of the event that will be published for the attendees to read (around 1 paragraph)"
+        agreement: "Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license"
+        description: "Detailed description of the event (several paragraphs)"
+        language: ""
         length: "Length of the event (in minutes). The length of a %{type} is between %{min} and %{max} minutes"
         notes: "Notes that you'd like the organisation team to read"
         subtitle: ""
         title: ""
-        track: The lecture track for your event
+        track: "The lecture track for your event"
       personal_profile:
-        biography: Describe yourself with a few sentences, writing about yourself in the third person :)
-        github: Your Github username
-        mobile_phone: A mobile phone that will be visible only by the organisation team
-        organisation: The organisation you represent
-        picture: Your photo
+        biography: "Describe yourself with a few sentences, writing about yourself in the third person :)"
+        github: "Your Github username"
+        mobile_phone: "A mobile phone that will be visible only by the organisation team"
+        organisation: "The organisation you represent"
+        picture: "Your photo"
         public_email: E-mail address that will be visible for the attendees
-        twitter: Your Twitter handle
+        twitter: "Your Twitter handle"
       volunteer:
+        name: "Keep in mind that this name will be written in your certificate for participation in the conference."
         email: "Your E-mail address. It will be visible only to the organizers"
         phone: "Your mobile phone. It will be visible only to the organizers"
         picture: "A picture of you in jpeg, png or gif format"
-        volunteer_teams: "The volunteer teams you'd like to be part of. You can find a description of each team <a href=\"/volunteer_teams?locale=en\" target=\"_blank\">here</a>"
+        volunteer_team: "The volunteer team you'd like to be a part of. You can find a description of each team <a href=\"/volunteer_teams?locale=en\" target=\"_blank\">here</a>. Leave a note in the Notes field if you wish to be a part of any additional teams."
       user:
         email: Your e-mail address. Will be visible to the organizers only.
-        password: Password with length between 8 and 128 symbols
-        password_confirmation: Repeat the password
-    'no': false
+        password: "Password with length between 8 and 128 symbols"
+        password_confirmation: "Repeat the password"
+    'no': "No"
     required:
       mark: "*"
-      text: Required field
-    'yes': true
-  someone_requested_passreset: Someone requested to change the password of your account. The password can be changed by following the link below
-  speaker_profile: Speaker profile
-  submit_talk_header: Submit a new talk
+      text: "Required field"
+    'yes': "Yes"
+  someone_requested_passreset: "Someone requested to change the password of your account. The password can be changed by following the link below"
+  speaker_profile: "Speaker profile"
+  submit_talk_header: "Submit a new talk"
   suggestion_and_speaker_count: "%{suggestions} submissions by %{speakers} speakers"
-  talks: Talks
+  talks: "Talks"
   unlocks:
-    did_not_receive_unlock_instructions: Did not receive unlock instructions?
-    resend: Resend
-    resend_unlock_instructions: Resend unlock instructions
-  update: Update
+    did_not_receive_unlock_instructions: "Did not receive unlock instructions?"
+    resend: "Resend"
+    resend_unlock_instructions: "Resend unlock instructions"
+  update: "Update"
   views:
     conference:
-      info: Conference details
-      see_details: See details
+      info: "Conference details"
+      see_details: "See details"
     events:
-      edit_event: Editing %{event_type} %{title}
-      event_successfully_created: Your %{event_type} submission was successfully created
-      event_successfully_updated: Your %{event_type} submission was successfully updated
-      successfully_confirmed: Your %{event_type} submission was successfully confirmed
-      error_on_confirmation: There was an error during the confirmation of your %{event_type} submission
-      no_events: You are yet to submit an event
-      submit_event: Submit a %{event_type}
+      edit_event: "Editing %{event_type} %{title}"
+      event_successfully_created: "Your %{event_type} submission was successfully created"
+      event_successfully_updated: "Your %{event_type} submission was successfully updated"
+      successfully_confirmed: "Your %{event_type} submission was successfully confirmed"
+      error_on_confirmation: "There was an error during the confirmation of your %{event_type} submission"
+      no_events: "You are yet to submit an event"
+      submit_event: "Submit a %{event_type}"
     navigation:
-      my_submissions: My submissions
+      my_submissions: "My submissions"
     personal_profiles:
-      successfully_created: Your personal profile was successfully created
-      successfully_updated: Your personal profile was successfully updated
+      successfully_created: "Your personal profile was successfully created"
+      successfully_updated: "Your personal profile was successfully updated"
     user:
-      info: User details
+      info: "User details"
     welcome:
-      submit_event: Submit %{event_type}
+      submit_event: "Submit %{event_type}"
     volunteers:
       new_volunteer_title: Apply for a volunteer
       edit_volunteer_title: "Volunteership application of %{name}"
@@ -380,7 +420,7 @@ en:
       successful_application_edit: "Your application was successfully updated"
       error_occurred_while_applying: "There was an error and your application could not be sent"
       you_successfully_retracted_your_application_for: "Your application was successfully retracted"
-  welcome: Welcome, %{name}
-  what_we_ask: 'We would like to receive your lecture, workshop, and stand submissions that belong to the following tracks until %{date}:'
-  workshop_was_successfully_confirmed: The workshop was successfully confirmed
-  workshops: Workshops
+  welcome: "Welcome, %{name}"
+  what_we_ask: "We would like to receive your lecture, workshop, and stand submissions that belong to the following tracks until %{date}:"
+  workshop_was_successfully_confirmed: "The workshop was successfully confirmed"
+  workshops: "Workshops"

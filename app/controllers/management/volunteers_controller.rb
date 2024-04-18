@@ -4,7 +4,7 @@ module Management
 
     def index
       @filters = filter_params || {}
-      @volunteers = VolunteerSearch.new(scope: Volunteer.where(conference: current_conference).eager_load(:volunteer_teams), filters: params[:filters]).results
+      @volunteers = VolunteerSearch.new(scope: Volunteer.where(conference: current_conference).eager_load(:volunteer_team), filters: params[:filters]).results
     end
 
     def show
@@ -30,13 +30,14 @@ module Management
     def filter_params
       params.fetch(:filters, {}).permit(:volunteer_team_id)
     end
-    
+
     def volunteer_params
       params.require(:volunteer).permit(:name, :picture, :email, :phone,
         :tshirt_size, :tshirt_cut,
         :food_preferences, :previous_experience,
         :notes, :language,
-        volunteer_team_ids: [])
+        :volunteer_team_id,
+        additional_volunteer_team_ids: [])
     end
   end
 end

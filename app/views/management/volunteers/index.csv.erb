@@ -1,4 +1,4 @@
-<%- csv_headers = %w{id name email language unique_id phone tshirt_size tshirt_cut food_preferences previous_experience notes teams} -%>
+<%- csv_headers = %w{id name email language unique_id phone tshirt_size tshirt_cut food_preferences previous_experience notes team additional_teams} -%>
 <%= CSV.generate_line(csv_headers).html_safe -%>
 <%- @volunteers.each do |volunteer| -%>
   <%= CSV.generate_line([volunteer.id,
@@ -12,5 +12,6 @@
                          volunteer.food_preferences,
                          volunteer.previous_experience,
                          volunteer.notes,
-                         volunteer.volunteer_teams.map(&:name).join(', ')]).html_safe -%>
+                         volunteer.volunteer_team.name,
+                         volunteer.additional_volunteer_teams.map(&:name).join(', ')]).html_safe -%>
 <%- end -%>

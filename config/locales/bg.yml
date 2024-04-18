@@ -15,77 +15,6 @@ bg:
         change_feedback_for: Преоценете „%{title}“
         by: от %{authors}
         feedback_incentive: Бихме били благодарни, ако споделите с нас мнението си за конференцията и събитията в нея.
-  management:
-    volunteers:
-      index:
-        all: Всички
-        profile: Профил
-        total: "%{current} от общо %{total}"
-    personal_profiles:
-      index:
-        no_profile: 'Този потребител няма въведен профил за текущата конференция.'
-        total: "%{current} от общо %{total}"
-      create:
-        successfully_created: "Профилът беше създаден успешно."
-      show:
-        contacts: "Данни за контакт"
-        event_propositions: "Предложения за събития"
-    conferences:
-      update_vote_data:
-        vote_data_successfully_updated: "Резултатите от гласуването бяха обновени успешно"
-        error_during_vote_data_save: "Възникна грешка при запазването на резултатите от гласуването"
-        error_during_connection_with_voting_endpoint: "Възникна грешка при опит за изтегляне на резултатите от гласуването: %{error}"
-      vote_results:
-        back_to: "Обратно към %{conference}"
-        vote_results: "Резултати от гласуването"
-        vote_data_never_updated: "Резултатите от гласуването не са изтеглени"
-        voting_results: "Резултати от гласуването"
-        vote_data_updated_at: "последно обновяване %{updated_at}"
-        vote_ratio: "%{votes} от общо %{total_votes} гласа"
-        fetch_vote_results: "Обнови резултатите от гласуването"
-        percent: "%"
-        rank: "Позиция"
-        unranked: "Няма данни"
-        export: Експорт
-      show:
-        full_vote_results: "Пълни резултати от гласуването"
-        vote_data_never_updated: "Резултатите от гласуването не са изтеглени"
-        voting_results: "Резултати от гласуването"
-        vote_data_updated_at: "последно обновяване %{updated_at}"
-        vote_ratio: "%{votes} от общо %{total_votes} гласа"
-        summary: 'Обобщение'
-        cfp_status: 'Състояние на CFP'
-        fetch_vote_results: "Обнови резултатите от гласуването"
-        percent: "%"
-        rank: "Позиция"
-    events:
-      conflicts:
-        conflicts: "Конфликти"
-        conflicts_of: "Конфликти на „%{event}“"
-        percent: "Процент"
-        hint_html: "Следващата таблица илюстрира какъв процент от посетителите, изявили интерес да присъстват на <strong>„%{event}“</strong>, биха желали да присъстват на всяко от посочените събития."
-      edit:
-        edit: "Редакция на %{event_type} „%{event_title}“"
-      speaker:
-        no_profile: 'Този потребител няма въведени профили в системата.'
-        profile_from: "профил от %{conference}"
-        create_profile: "Създай нов профил"
-        previous_event_propositions: 'Предишни предложения за събития'
-        contacts: "Информация за контакт"
-      show:
-        between_approved_events: "Между настоящото и одобрените събития"
-        no_approved_events: "Няма достатъчно одобрени събития"
-        rank: "Класиране"
-        review: "Преглед на %{event_type} „%{event_title}“"
-        conflicts: "Конфликти"
-        percent: "Процент"
-      index:
-        all: "Всички"
-        total: "%{current} от общо %{total}"
-      event:
-        create_profile: "Създай профил"
-      no_records:
-        no_records_found: 'Не бяха открити записи, които да отговарят на изискванията'
   abstract: "Резюме"
   helpers:
     submit:
@@ -190,7 +119,8 @@ bg:
         previous_experience: Предишен опит
         notes: Бележки
         language: Език
-        volunteer_teams: Екипи доброволци
+        volunteer_team: Екип доброволци
+        additional_volunteer_teams: Допълнителни екипи доброволци
       track:
         color: "Цвят"
         description: "Описание"
@@ -230,7 +160,9 @@ bg:
           attributes:
             picture:
               invalid_content_type: "невалиден формат на снимката"
-            volunteer_teams:
+            volunteer_team:
+              invalid_volunteer_team: "невалиден екип от доброволци"
+            additional_volunteer_teams:
               invalid_volunteer_team: "невалиден екип от доброволци"
     models:
       feedback:
@@ -434,10 +366,11 @@ bg:
         public_email: E-mail адрес, който ще бъде видим за посетителите
         twitter: "Потребителското Ви име в Twitter"
       volunteer:
+        name: "Имайте предвид, че това име ще бъде изписано на грамотата ви за участие в конференцията"
         email: "Е-mail адресът Ви, който ще бъде видим само от организаторите"
         phone: "Мобилният Ви телефон, който ще бъде видим само за организаторите"
         picture: "Ваша снимка в jpeg, png или gif формат"
-        volunteer_teams: "Доброволческите екипи, от които искате да сте част. Подробни описания на екипите можете да намерите <a href=\"/volunteer_teams\" target=\"_blank\">тук</a>"
+        volunteer_team: "Доброволческият екип, от които искате да бъдете част. Подробни описания на екипите можете да намерите <a href=\"/volunteer_teams\" target=\"_blank\">тук</a>. Ако желаете да участвате в повече от един екип, споменете това в полето бележка."
       user:
         email: e-mail адресът Ви. Ще бъде видим само от организаторите
         password: "Парола с дължина между 8 и 128 символа"
