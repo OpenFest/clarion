@@ -11,7 +11,11 @@ Rails.application.routes.draw do
         get :confirm
       end
     end
-    resources :volunteers
+    resources :volunteers do
+      member do
+        get :confirm, to: "volunteer_confirmations#create"
+      end
+    end
     resources :volunteer_teams, only: [:index]
     resources :feedback, as: "conference_feedbacks", controller: "conference_feedbacks", only: [:new, :create, :index]
   end

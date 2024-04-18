@@ -1,5 +1,9 @@
 - content_for(:title) { t 'views.volunteers.edit_volunteer_title', name: @volunteer.name }
 
+- if !@volunteer.new_record? && !@volunteer.confirmed_at
+  div.flash_messages
+    div.flash.alert = t 'views.volunteers.email_not_confirmed'
+
 h1 = t 'views.volunteers.edit_volunteer_title', name: @volunteer.name
 
 = render 'form'

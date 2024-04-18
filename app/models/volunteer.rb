@@ -9,7 +9,7 @@ class Volunteer < ActiveRecord::Base
   validates :tshirt_size, inclusion: {in: TSHIRT_SIZES.map(&:to_s)}
   validates :tshirt_cut, inclusion: {in: TSHIRT_CUTS.map(&:to_s)}
   validates :food_preferences, inclusion: {in: FOOD_PREFERENCES.map(&:to_s)}
-  validates :email, format: {with: /\A[^@]+@[^@]+\z/}, presence: true
+  validates :email, format: {with: /\A[^@]+@[^@]+\z/}, presence: true, uniqueness: {scope: :conference_id}
   validates :phone, presence: true, format: {with: /\A[+\- \(\)0-9]+\z/}
   validates :volunteer_team, presence: true
   validate :volunteer_teams_belong_to_conference
@@ -22,7 +22,12 @@ class Volunteer < ActiveRecord::Base
 
   before_create :ensure_main_volunteer_team_is_part_of_additional_volunteer_teams
   before_create :assign_unique_id
-  after_create :send_notification_to_volunteer
+  before_create :assign_confirmation_token
+  after_commit :send_email_confirmation_to_volunteer, on: [:create]
+
+  def send_notification_to_volunteer
+    VolunteerMailer.volunteer_notification(self).deliver_later
+  end
 
   private
 
@@ -34,8 +39,12 @@ class Volunteer < ActiveRecord::Base
     self.unique_id = Digest::SHA256.hexdigest(SecureRandom.uuid)
   end
 
-  def send_notification_to_volunteer
-    VolunteerMailer.volunteer_notification(self).deliver_later
+  def assign_confirmation_token
+    self.confirmation_token = Digest::SHA256.hexdigest(SecureRandom.uuid)
+  end
+
+  def send_email_confirmation_to_volunteer
+    VolunteerMailer.volunteer_email_confirmation(self).deliver_later
   end
 
   def volunteer_teams_belong_to_conference

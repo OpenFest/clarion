@@ -242,6 +242,8 @@ bg:
   volunteer_mailer:
     success_notification:
       subject: "Кандидатурата Ви за доброволец за %{conference_name} беше получена"
+    email_confirmation:
+      subject: "Потвърдете e-mail адреса си, за да се включите в %{conference_name}"
   event_states:
     approved:
       one: "Одобрено"
@@ -412,6 +414,9 @@ bg:
     welcome:
       submit_event: "Предложи %{event_type}"
     volunteers:
+      email_not_confirmed: Вашият e-mail адрес не е потвърден. Моля, проверете електронната си поща и кликнете на линка от полученото писмо за потвърждение.
+      email_confirmed_successfully: Успешно потвърдихте e-mail адреса си!
+      email_confirmation_error: Възникна грешка при опит за потвърждаване на e-mail адреса Ви.
       new_volunteer_title: Кандидатствай за доброволец
       edit_volunteer_title: "Кандидатура за доброволец на %{name}"
       apply: Кандидатствай за доброволец

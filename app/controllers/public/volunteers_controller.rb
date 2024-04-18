@@ -1,5 +1,6 @@
 module Public
   class VolunteersController < Public::ApplicationController
+    before_action :check_honey_pot, only: [:create, :edit]
     def new
       @volunteer = current_conference.volunteers.build
     end
@@ -29,6 +30,10 @@ module Public
     end
 
     private
+
+    def check_honey_pot
+      head :unauthorized unless params.dig(:volunteer_ht, :full_name).blank?
+    end
 
     def volunteer_params
       params.require(:volunteer).permit(

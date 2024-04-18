@@ -9,6 +9,9 @@
       = f.hidden_field :picture, value: @volunteer.picture.signed_id if @volunteer.picture.attached?
       = f.input :picture, as: :file, required: false, direct: true, wrapper: false, input_html: {direct_upload: true}
 
+    = text_field :volunteer_ht, :full_name, class: 'special-form-field', tabindex: "-1", "aria-hidden": true
+    = label :volunteer_ht, :full_name, 'Full Name', class: 'special-form-field', "aria-hidden": true
+
     = f.input :name, autofocus: true
     = f.input :email
     = f.input :phone, input_html: {value: @volunteer.phone.try(:phony_formatted, format: :international)}

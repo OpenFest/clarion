@@ -1,0 +1,5 @@
+Здравейте,
+
+Моля, потвърдете e-mail адреса си от следния линк:
+
+<%= confirm_volunteer_url(@volunteer.unique_id, confirmation_token: @volunteer.confirmation_token, host: @volunteer.conference.host_name, protocol: 'https') %>

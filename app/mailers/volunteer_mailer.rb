@@ -13,8 +13,19 @@ class VolunteerMailer < ActionMailer::Base
     I18n.locale = @volunteer.language
     mail(to: @volunteer.email,
          reply_to: @volunteer.conference.email,
-         from: "no-reply@openfest.org",
+         from: "cfp@openfest.org",
          subject: I18n.t("volunteer_mailer.success_notification.subject",
            conference_name: @volunteer.conference.title))
   end
+
+  def volunteer_email_confirmation(new_volunteer)
+    @volunteer = new_volunteer
+    I18n.locale = @volunteer.language
+    mail(to: @volunteer.email,
+         reply_to: @volunteer.conference.email,
+         from: "cfp@openfest.org",
+         subject: I18n.t("volunteer_mailer.email_confirmation.subject",
+                         conference_name: @volunteer.conference.title))
+  end
+
 end

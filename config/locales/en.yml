@@ -242,6 +242,8 @@ en:
   volunteer_mailer:
     success_notification:
       subject: "Your application for \"volunteership\" on %{conference_name} was received"
+    email_confirmation:
+      subject: "Confirm your e-mail address to participate in %{conference_name}"
   event_states:
     approved:
       one: "Approved"
@@ -412,6 +414,9 @@ en:
     welcome:
       submit_event: "Submit %{event_type}"
     volunteers:
+      email_not_confirmed: Your e-mail address has not been confirmed yet. Please check your e-mail and click on the link from the confirmation message you received.
+      email_confirmed_successfully: You have successfully confirmed your e-mail address!
+      email_confirmation_error: There was an error during the attempt to confirm your e-mail address.
       new_volunteer_title: Apply for a volunteer
       edit_volunteer_title: "Volunteership application of %{name}"
       apply: Apply for a volunteer
