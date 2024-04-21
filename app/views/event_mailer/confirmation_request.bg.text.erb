@@ -1,6 +1,6 @@
 Здравейте,
 
-Имаме удоволствието да Ви информираме, че Вашето предложение за участие в „<%= @event.conference.title %>“ с <%= @event.event_type.name.mb_chars.downcase %> на тема „<%= @event.title %>“ беше одобрено. <% if @event.slot.present? -%>
+Имаме удоволствието да ви информираме, че Вашето предложение за участие в „<%= @event.conference.title %>“ с <%= @event.event_type.name.mb_chars.downcase %> на тема „<%= @event.title %>“ беше одобрено. <% if @event.slot.present? -%>
 Ще се проведе на <%= I18n.l @event.slot.starts_at, format: :long %> часа.
 <% else %>
 Определянето на датата и часа на провеждане все още предстои.

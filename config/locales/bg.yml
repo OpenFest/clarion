@@ -224,7 +224,7 @@ bg:
   did_not_get_confirmation: "Не сте получили инструкции за потвърждение?"
   did_not_get_unlock: "Не сте получили инструкции за отключване?"
   do_not_want_pass_reset1: "Ако не желаете да смените паролата си, моля изтрийте това писмо."
-  do_not_want_pass_reset2: "Паролата Ви няма да бъде променена, докато не кликнете горния линк и не въведете нова парола."
+  do_not_want_pass_reset2: "Паролата ви няма да бъде променена, докато не кликнете горния линк и не въведете нова парола."
   edit: "Редактирай"
   edit_speaker_profile: "Редакция на профил"
   edit_talk: "Редакция на лекция"
@@ -236,12 +236,12 @@ bg:
       improbable_phone: "не е валиден телефонен номер"
   event_mailer:
     acceptance_notification:
-      subject: "Предложението Ви за провеждане на %{submission_type} „%{title}“ на %{conference} е одобрено"
+      subject: "Предложението ви за провеждане на %{submission_type} „%{title}“ на %{conference} е одобрено"
     rejection_notification:
-      subject: "Предложението Ви за %{submission_type} „%{title}“ на %{conference} не е одобрено"
+      subject: "Предложението ви за %{submission_type} „%{title}“ на %{conference} не е одобрено"
   volunteer_mailer:
     success_notification:
-      subject: "Кандидатурата Ви за доброволец за %{conference_name} беше получена"
+      subject: "Кандидатурата ви за доброволец за %{conference_name} беше получена"
     email_confirmation:
       subject: "Потвърдете e-mail адреса си, за да се включите в %{conference_name}"
   event_states:
@@ -263,9 +263,9 @@ bg:
   expected_validation: "Очаква се потвърждение на: %{email}"
   hello: "Здравейте, %{name}"
   home: "Начало"
-  home_title: "%{conference} - зов за лектори"
+  home_title: "%{conference} — сподели знания, предложи лекция"
   lecture_was_successfully_confirmed: "Лекцията беше потвърдена успешно"
-  license_notice: "Имайте предвид, че презентациите Ви впоследствие ще бъдат публикувани с лиценз CC-BY-ND (Creative Commons – Attribution – No derivatives)."
+  license_notice: "Имайте предвид, че презентациите ви впоследствие ще бъдат публикувани с лиценз CC-BY-ND (Creative Commons – Attribution – No derivatives)."
   locales:
     bg: "Български"
     en: Английски
@@ -303,7 +303,7 @@ bg:
     sign_up: "Регистрация"
     unhappy: "Не Сте щастливи?"
     update: "Промени"
-    we_need_your_current_password: "нуждаем се от сегашната Ви парола, за да потвърдим промените"
+    we_need_your_current_password: "нуждаем се от сегашната ви парола, за да потвърдим промените"
   resend_instructions_btn: "Изпрати отново инструкциите"
   resend_instructions_header: "Повторно изпращане на инструкции за потвърждаване на акаунт"
   resend_unlock_instructions_title: "Изпрати отново инструкции за отключване"
@@ -351,30 +351,30 @@ bg:
           name: "Име на потока"
       event:
         abstract: "Резюме на предложението, което да може да бъде представено на посетителите (1 абзац)"
-        agreement: "Отбележете съгласни ли сте с това събитието Ви да бъде записано и публикувано под лиценз CC-BY-ND (Creative Commons – Attribution – No Derivatives)"
+        agreement: "Отбележете съгласни ли сте с това събитието ви да бъде записано и публикувано под лиценз CC-BY-ND (Creative Commons – Attribution – No Derivatives)"
         description: "Подробно описание на предложението (няколко абзаца)"
         language: ""
         length: "Продължителността на събитието (в минути). Продължителността на %{type} е между %{min} и %{max} минути, заедно с въпросите"
         notes: "Допълнителни бележки, които искате да споделите с организаторския екип"
         subtitle: ""
         title: ""
-        track: "Потокът от лекции, в който искате да попадне предложението Ви"
+        track: "Потокът от лекции, в който искате да попадне предложението ви"
       personal_profile:
         biography: "Опишете се с няколко изречения, говорейки за себе си в трето лице :)"
-        github: "Потребителското Ви име в Github"
+        github: "Потребителското ви име в Github"
         mobile_phone: "Мобилен телефон, който ще бъде видим само за организаторите"
         organisation: "Организацията, която представлявате"
         picture: "Ваша снимка"
         public_email: E-mail адрес, който ще бъде видим за посетителите
-        twitter: "Потребителското Ви име в Twitter"
+        twitter: "Потребителското ви име в Twitter"
       volunteer:
         name: "Имайте предвид, че това име ще бъде изписано на грамотата ви за участие в конференцията"
-        email: "Е-mail адресът Ви, който ще бъде видим само от организаторите"
-        phone: "Мобилният Ви телефон, който ще бъде видим само за организаторите"
+        email: "Е-mail адресът ви, който ще бъде видим само от организаторите"
+        phone: "Мобилният ви телефон, който ще бъде видим само за организаторите"
         picture: "Ваша снимка в jpeg, png или gif формат"
         volunteer_team: "Доброволческият екип, от които искате да бъдете част. Подробни описания на екипите можете да намерите <a href=\"/volunteer_teams\" target=\"_blank\">тук</a>. Ако желаете да участвате в повече от един екип, споменете това в полето бележка."
       user:
-        email: e-mail адресът Ви. Ще бъде видим само от организаторите
+        email: e-mail адресът ви. Ще бъде видим само от организаторите
         password: "Парола с дължина между 8 и 128 символа"
         password_confirmation: "Отново въведената отгоре парола"
     'no': "Не"
@@ -382,7 +382,7 @@ bg:
       mark: "*"
       text: "Задължително поле"
     'yes': "Да"
-  someone_requested_passreset: "Някой поиска линк за промяна на парола на акаунта Ви. Паролата може да бъде променена от линкът отдолу."
+  someone_requested_passreset: "Някой поиска линк за промяна на парола на акаунта ви. Паролата може да бъде променена от линкът отдолу."
   speaker_profile: "Личен профил"
   submit_talk_header: "Предложи нова лекция"
   suggestion_and_speaker_count: "%{suggestions} предложения от %{speakers} лектори"
@@ -398,17 +398,17 @@ bg:
       see_details: "Повече информация"
     events:
       edit_event: "Редактиране на %{event_type} %{title}"
-      event_successfully_created: "Предложението Ви за %{event_type} беше създадено успешно"
-      event_successfully_updated: "Предложението Ви за %{event_type} беше обновено успешно"
-      successfully_confirmed: "Предложението Ви за %{event_type} беше потвърдено успешно"
-      error_on_confirmation: "Възникна грешка при потвърждението на предложението Ви за %{event_type}"
+      event_successfully_created: "Предложението ви за %{event_type} беше създадено успешно"
+      event_successfully_updated: "Предложението ви за %{event_type} беше обновено успешно"
+      successfully_confirmed: "Предложението ви за %{event_type} беше потвърдено успешно"
+      error_on_confirmation: "Възникна грешка при потвърждението на предложението ви за %{event_type}"
       no_events: "Все още не сте предложили събитие"
       submit_event: "Предлагане на %{event_type}"
     navigation:
       my_submissions: "Моите предложения"
     personal_profiles:
-      successfully_created: "Профилът Ви беше създаден успешно"
-      successfully_updated: "Профилът Ви беше обновен успешно"
+      successfully_created: "Профилът ви беше създаден успешно"
+      successfully_updated: "Профилът ви беше обновен успешно"
     user:
       info: "Информация за потребител"
     welcome:
@@ -416,16 +416,16 @@ bg:
     volunteers:
       email_not_confirmed: Вашият e-mail адрес не е потвърден. Моля, проверете електронната си поща и кликнете на линка от полученото писмо за потвърждение.
       email_confirmed_successfully: Успешно потвърдихте e-mail адреса си!
-      email_confirmation_error: Възникна грешка при опит за потвърждаване на e-mail адреса Ви.
+      email_confirmation_error: Възникна грешка при опит за потвърждаване на e-mail адреса ви.
       new_volunteer_title: Кандидатствай за доброволец
       edit_volunteer_title: "Кандидатура за доброволец на %{name}"
       apply: Кандидатствай за доброволец
       withdraw_application: Оттегли кандидатурата си
       successful_application: "Успешно изпратихте кандидатурата си"
       successful_application_edit: "Успешно редактирахте кандидатурата си"
-      error_occurred_while_applying: "Възникна грешка и кандидатурата Ви не беше изпратена"
+      error_occurred_while_applying: "Възникна грешка и кандидатурата ви не беше изпратена"
       you_successfully_retracted_your_application_for: "Успешно оттеглихте кандидатурата си“"
   welcome: "Добре дошли, %{name}"
-  what_we_ask: "Бихме искали да получим предложенията Ви за лекции, уъркшопи и щандове, принадлежащи към следните категории, до %{date}г.:"
+  what_we_ask: "Бихме искали да получим предложенията ви за лекции, уъркшопи и щандове до %{date}г. Категориите, които имаме тази година, са:"
   workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"
   workshops: "Уъркшопи"
