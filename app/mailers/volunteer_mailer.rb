@@ -4,7 +4,7 @@ class VolunteerMailer < ActionMailer::Base
 
     mail(
       to: @volunteer.conference.email,
-      subject: "Нов доброволец за #{@volunteer.conference.title}"
+      subject: "Нов доброволец за #{@volunteer.conference.title} - #{@volunteer.volunteer_team.name}"
     )
   end
 
