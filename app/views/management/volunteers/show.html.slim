@@ -38,7 +38,7 @@
         h4 = t '.other_info'
         = icon(:language, t("locales.#{@volunteer.language}"))
         br
-        = icon(:envelope, @volunteer.email)
+        = icon(@volunteer.confirmed_at.present? ? "envelope" : "envelope-o", @volunteer.email)
         br
         = icon(:phone, @volunteer.phone.try(:phony_formatted, format: :international))
         br

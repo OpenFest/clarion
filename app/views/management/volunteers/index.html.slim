@@ -48,7 +48,7 @@
                     h4.media-heading
                       = volunteer.name
                     p
-                      = icon(:envelope, volunteer.email)
+                      = icon(volunteer.confirmed_at.present? ? "envelope" : "envelope-o", "#{volunteer.confirmed_at.nil? ? '(unverified) ' : ''}#{volunteer.email}")
               td
                 = volunteer.volunteer_team.name
               td.actions
