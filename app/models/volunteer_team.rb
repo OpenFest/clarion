@@ -1,6 +1,7 @@
 class VolunteerTeam < ActiveRecord::Base
   belongs_to :conference
-  has_and_belongs_to_many :volunteers
+  has_many :volunteers, inverse_of: :volunteer_team
+  has_and_belongs_to_many :supporters, class_name: "Volunteer", inverse_of: :additional_volunteer_teams
 
   validates :name, presence: true
   validates :color, presence: true, format: {with: /\A#?[a-f0-9]{6}\z/i}
