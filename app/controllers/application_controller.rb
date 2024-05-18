@@ -33,7 +33,8 @@ class ApplicationController < ActionController::Base
     # TODO: make this get the domain from the database
     prepend_view_path "lib/initfest/views" if request.host =~ /openfest/
     prepend_view_path "lib/initfest/views" if request.host =~ /example/
-    prepend_view_path "lib/initfest/views" if request.host =~ /127\.0\.0/
+    prepend_view_path "lib/initfest/views" if request.host =~ /^127\.0\.0/
+    prepend_view_path "lib/initfest/views" if request.host =~ /^localhost$/
   end
 
   protected
