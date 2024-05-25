@@ -13,6 +13,10 @@ services:
       SECRET_KEY_BASE: not-a-real-secret-oodeig8etho1usik5Eehoh9jah9yuS3o
     ports:
       - 127.0.0.1:3000:3000
+    depends_on:
+      - redis
+      - mail-dummy
+      - db
 
   redis:
     image: redis:7
