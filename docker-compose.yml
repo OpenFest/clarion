@@ -14,18 +14,9 @@ services:
     ports:
       - 127.0.0.1:3000:3000
     depends_on:
+      - db
       - redis
       - mail-dummy
-      - db
-
-  redis:
-    image: redis:7
-
-  mail-dummy:
-    image: python:3.11-slim
-    command: python3 -m smtpd --debug --class DebuggingServer 0.0.0.0:25
-    expose:
-      - 25
 
   db:
     image: postgres:16.3
@@ -35,6 +26,15 @@ services:
       POSTGRES_DB: clarion
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+
+  mail-dummy:
+    image: python:3.11-slim
+    command: python3 -m smtpd --debug --class DebuggingServer 0.0.0.0:25
+    expose:
+      - 25
 
 volumes:
   pgdata:
