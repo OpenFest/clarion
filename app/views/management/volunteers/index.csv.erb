@@ -3,7 +3,7 @@
 <%- @volunteers.each do |volunteer| -%>
   <%= CSV.generate_line([volunteer.id,
                          volunteer.name,
-                         volunteer.email,
+                         "#{volunteer.confirmed_at.nil? ? '(unverified) ' : ''}#{volunteer.email}",
                          volunteer.language,
                          volunteer.unique_id,
                          volunteer.phone,
