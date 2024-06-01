@@ -49,7 +49,7 @@ Rails.application.configure do
   # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl = ENV["CLARION_USE_PLAINTEXT"] != "yes"
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
@@ -90,7 +90,7 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: "OpenFest <cfp@openfest.org>"}
   config.action_mailer.default_url_options = {host: "cfp.openfest.org"}
   config.action_mailer.smtp_settings = {
-    address: "mail.openfest.org"
+    address: ENV.fetch("CLARION_MAIL_SERVER", "mail.openfest.org")
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

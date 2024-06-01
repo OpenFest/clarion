@@ -79,7 +79,7 @@ test:
 #
 production:
   <<: *default
-  host: host.containers.internal
+  host: <%= ENV.fetch("CLARION_DATABASE_HOST") { "host.containers.internal" } %>
   database: clarion
   username: clarion
   password: <%= ENV["CLARION_DATABASE_PASSWORD"] %>

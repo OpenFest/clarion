@@ -1,0 +1,40 @@
+services:
+  clarion:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      RAILS_ENV: production
+      CLARION_DATABASE_HOST: db
+      CLARION_DATABASE_PASSWORD: not-a-real-db-password-tiliez4phei9oZoo1Shoyitee2zoon8O
+      REDIS_URL: redis://redis:6379/1
+      CLARION_MAIL_SERVER: mail-dummy
+      CLARION_USE_PLAINTEXT: yes
+      SECRET_KEY_BASE: not-a-real-secret-oodeig8etho1usik5Eehoh9jah9yuS3o
+    ports:
+      - 127.0.0.1:3000:3000
+    depends_on:
+      - db
+      - redis
+      - mail-dummy
+
+  db:
+    image: postgres:16.3
+    environment:
+      POSTGRES_USER: clarion
+      POSTGRES_PASSWORD: not-a-real-db-password-tiliez4phei9oZoo1Shoyitee2zoon8O
+      POSTGRES_DB: clarion
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+
+  mail-dummy:
+    image: python:3.11-slim
+    command: python3 -m smtpd --debug --class DebuggingServer 0.0.0.0:25
+    expose:
+      - 25
+
+volumes:
+  pgdata:
