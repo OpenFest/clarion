@@ -24,6 +24,7 @@ class Volunteer < ActiveRecord::Base
   before_create :assign_unique_id
   before_create :assign_confirmation_token
   after_commit :send_email_confirmation_to_volunteer, on: [:create]
+  after_commit :send_email_to_organisers, on: [:create]  # technically the email is not confirmed yet
 
   def send_notification_to_volunteer
     VolunteerMailer.volunteer_notification(self).deliver_later
@@ -45,6 +46,10 @@ class Volunteer < ActiveRecord::Base
 
   def send_email_confirmation_to_volunteer
     VolunteerMailer.volunteer_email_confirmation(self).deliver_later
+  end
+
+  def send_email_to_organisers
+    VolunteerMailer.team_notification(self).deliver_later
   end
 
   def volunteer_teams_belong_to_conference
