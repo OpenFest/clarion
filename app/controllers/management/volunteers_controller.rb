@@ -15,6 +15,12 @@ module Management
       @volunteer = current_conference.volunteers.find(params[:id])
     end
 
+    def destroy
+      @volunteer = current_conference.volunteers.find(params[:id])
+      @volunteer.destroy!
+      redirect_to management_conference_volunteers_path(conference_id: current_conference.id)
+    end
+
     def update
       @volunteer = current_conference.volunteers.find(params[:id])
 
