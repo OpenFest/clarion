@@ -9,6 +9,6 @@ class Api::EventsController < Api::ApplicationController
 
   def halfnarp_friendly
     @events = current_conference.events.joins(:proposition).includes(:track, :event_type).where.not(propositions: {status: :rejected})
-    render json: JSON.dump(@events.to_json(include: [:track, :event_type]))
+    render json: @events, include: [:track, :event_type]
   end
 end
