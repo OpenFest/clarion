@@ -1,4 +1,4 @@
-json.array! @events do |event|
+json.array! @events, cached: ->(event) { [event, event.track, event.event_type] } do |event|
   json.id event.id
   json.title event.title
   json.abstract event.abstract
