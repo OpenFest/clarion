@@ -4,7 +4,7 @@ class Proposition < ActiveRecord::Base
   enum status: [:undecided, :approved, :rejected, :backup]
   delegate :proposable_title, :proposable_type, :proposable_description, to: :proposable
 
-  after_create :send_creation_notification
+  after_commit :send_creation_notification, on: [:create]
   before_destroy :send_withdrawal_notification
 
   def confirm!
