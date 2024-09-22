@@ -12,6 +12,7 @@ class Volunteer < ActiveRecord::Base
   validates :email, format: {with: /\A[^@]+@[^@]+\z/}, presence: true, uniqueness: {scope: :conference_id}
   validates :phone, presence: true, format: {with: /\A[+\- \(\)0-9]+\z/}
   validates :volunteer_team, presence: true
+  validates :terms_accepted, acceptance: true
   validate :volunteer_teams_belong_to_conference
 
   phony_normalize :phone, default_country_code: "BG"
@@ -24,7 +25,7 @@ class Volunteer < ActiveRecord::Base
   before_create :assign_unique_id
   before_create :assign_confirmation_token
   after_commit :send_email_confirmation_to_volunteer, on: [:create]
-  after_commit :send_email_to_organisers, on: [:create]  # technically the email is not confirmed yet
+  after_commit :send_email_to_organisers, on: [:create]  # technically the volunteer's email is not confirmed yet
 
   def send_notification_to_volunteer
     VolunteerMailer.volunteer_notification(self).deliver_later

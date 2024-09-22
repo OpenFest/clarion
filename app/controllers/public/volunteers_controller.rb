@@ -39,7 +39,7 @@ module Public
       params.require(:volunteer).permit(
         :name, :picture, :email, :phone, :tshirt_size, :tshirt_cut,
         :food_preferences, :previous_experience, :notes, :language,
-        :volunteer_team_id
+        :terms_accepted, :volunteer_team_id,
       )
     end
   end

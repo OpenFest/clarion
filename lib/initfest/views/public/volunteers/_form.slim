@@ -22,5 +22,6 @@
     = f.input :food_preferences, collection: Volunteer::FOOD_PREFERENCES, as: :radio_buttons, wrapper: :default, checked: (@volunteer.food_preferences.presence || :none)
     = f.input :previous_experience
     = f.input :notes
+    = f.input :terms_accepted
   .form-actions
     = f.button :submit

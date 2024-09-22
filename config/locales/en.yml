@@ -118,6 +118,7 @@ en:
         food_preferences: Food preference
         previous_experience: Previous experience
         notes: Notes
+        terms_accepted: I agree to be contacted by the team
         language: Language
         volunteer_team: Volunteer team
         additional_volunteer_teams: Additional volunteer teams
@@ -373,6 +374,7 @@ en:
         phone: "Your mobile phone. It will be visible only to the organizers"
         picture: "A picture of you in jpeg, png or gif format"
         volunteer_team: "The volunteer team you'd like to be a part of. You can find a description of each team <a href=\"/volunteer_teams?locale=en\" target=\"_blank\">here</a>. Leave a note in the Notes field if you wish to be a part of any additional teams."
+        terms_accepted: "I agree to be contacted by the team, and with <a href=\"https://openfest.org/2024/en/terms-of-service\" target=\"_blank\">the terms of service and the privacy policy</a>."
       user:
         email: Your e-mail address. Will be visible to the organizers only.
         password: "Password with length between 8 and 128 symbols"

@@ -41,7 +41,7 @@ module Management
       params.require(:volunteer).permit(:name, :picture, :email, :phone,
         :tshirt_size, :tshirt_cut,
         :food_preferences, :previous_experience,
-        :notes, :language,
+        :notes, :language, :terms_accepted,
         :volunteer_team_id,
         additional_volunteer_team_ids: [])
     end
