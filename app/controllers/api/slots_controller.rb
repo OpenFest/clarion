@@ -5,5 +5,7 @@ class Api::SlotsController < Api::ApplicationController
 
   def index
     @slots = current_conference.slots
+
+    fresh_when @slots
   end
 end

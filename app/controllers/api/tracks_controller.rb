@@ -5,5 +5,6 @@ class Api::TracksController < Api::ApplicationController
 
   def index
     @tracks = current_conference.tracks.includes(:translations)
+    fresh_when @tracks
   end
 end

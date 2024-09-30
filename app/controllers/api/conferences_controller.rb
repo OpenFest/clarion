@@ -3,5 +3,6 @@ class Api::ConferencesController < Api::ApplicationController
 
   def index
     @conferences = Conference.all
+    fresh_when @conferences
   end
 end

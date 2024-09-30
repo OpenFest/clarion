@@ -5,5 +5,6 @@ class Api::SpeakersController < Api::ApplicationController
 
   def index
     @speakers = PersonalProfile.joins(user: {participations: {event: :proposition}}).where(events: {id: current_conference.approved_events.pluck(:id)}, conference: current_conference).distinct
+    fresh_when @speakers
   end
 end

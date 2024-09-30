@@ -5,5 +5,6 @@ class Api::EventTypesController < Api::ApplicationController
 
   def index
     @event_types = current_conference.event_types.includes(:translations)
+    fresh_when @event_types
   end
 end

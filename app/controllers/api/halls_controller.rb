@@ -5,5 +5,6 @@ class Api::HallsController < Api::ApplicationController
 
   def index
     @halls = current_conference.halls
+    fresh_when @halls
   end
 end
