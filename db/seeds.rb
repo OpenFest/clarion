@@ -11,4 +11,5 @@ User.create(
   password_confirmation: "123qweASD",
   confirmed_at: Time.current,
   admin: true
+  owner: true
 )
