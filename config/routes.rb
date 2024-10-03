@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :event_types, only: :index
       resources :halls, only: :index
       resources :slots, only: :index
+      resource :schedule, only: :show
       resources :volunteers
     end
   end

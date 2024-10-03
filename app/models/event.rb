@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
 
   scope :ranked, -> { where.not(ranked: nil).where.not(votes: nil) }
   scope :approved, -> { where(propositions: {status: Proposition.statuses[:approved]})}
+  scope :approved_joined, -> { joins(:proposition).merge(Proposition.approved) }
 
   validates :conference, presence: true
   validates :title, presence: true, length: {maximum: 65}
