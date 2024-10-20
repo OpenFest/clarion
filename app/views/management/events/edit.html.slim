@@ -18,6 +18,13 @@
       = f.input :abstract
       = f.input :description
       = f.input :notes
+      div class="form-group file optional resources_bundle"
+        dev class="col-sm-3 control-label text optional"
+          = f.label :resources_bundle
+        .col-sm-9
+          = link_to @event.resources_bundle.filename, rails_blob_url(@event.resources_bundle.blob, disposition: "attachment") if @event.resources_bundle.attached?
+          = f.hidden_field :resources_bundle, value:@event.resources_bundle.signed_id if @event.resources_bundle.attached?
+          = f.input :resources_bundle, as: :file, wrapper: false, input_html: {direct_upload: true}, label: false
       hr
       .row
         .col-lg-12

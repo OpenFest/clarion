@@ -9,6 +9,7 @@ module Management
                          .eager_load(:participants_with_personal_profiles,
                                      :proposition, :proposer, {track: [:translations]},
                                      {event_type: [:translations]}, :feedbacks)
+                         .with_attached_resources_bundle
                          .preload(:conference), filters: params[:filters]).results
 
       # @events = @conference.events.order(:title).includes(:proposition, :proposer, :track, :event_type)
@@ -76,6 +77,7 @@ module Management
         :abstract,
         :description,
         :notes,
+        :resources_bundle,
         :track_id,
         :event_type_id,
         participations_attributes: [

@@ -1,18 +1,22 @@
 = simple_form_for @event, wrapper: :default do |form|
-  = form.input :event_type_id, as: :hidden, wrapper: false
+  = form.input :event_type_id, as: :hidden, wrapper: false, disabled: :event_type.in?(@event.fields_editable_by_participant)
 
   p
     = form.error_notification
 
   .form-inputs
-    = form.input :title, autofocus: true
-    = form.input :subtitle
-    = form.association :track, wrapper: :default, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }
-    = form.input :length, hint: t('simple_form.hints.event.length', type: @event.event_type.name.mb_chars.downcase, min: @event.event_type.minimum_length, max: @event.event_type.maximum_length)
-    = form.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default
-    = form.input :abstract
-    = form.input :description
-    = form.input :notes
+    = form.input :title, autofocus: true, disabled: !:title.in?(@event.fields_editable_by_participant)
+    = form.input :subtitle, disabled: !:subtitle.in?(@event.fields_editable_by_participant)
+    = form.association :track, wrapper: :default, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }, disabled: !:track_id.in?(@event.fields_editable_by_participant)
+    = form.input :length, hint: t('simple_form.hints.event.length', type: @event.event_type.name.mb_chars.downcase, min: @event.event_type.minimum_length, max: @event.event_type.maximum_length), disabled: !:length.in?(@event.fields_editable_by_participant)
+    = form.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, disabled: !:language.in?(@event.fields_editable_by_participant)
+    = form.input :abstract, disabled: !:abstract.in?(@event.fields_editable_by_participant)
+    = form.input :description, disabled: !:description.in?(@event.fields_editable_by_participant)
+    = form.input :notes, disabled: !:notes.in?(@event.fields_editable_by_participant)
+    .input
+      = link_to @event.resources_bundle.filename, rails_blob_url(@event.resources_bundle.blob, disposition: "attachment") if @event.resources_bundle.attached?
+      = form.hidden_field :resources_bundle, value:@event.resources_bundle.signed_id if @event.resources_bundle.attached?
+      = form.input :resources_bundle, as: :file, wrapper: false, input_html: {direct_upload: true}, disabled: !:resources_bundle.in?(@event.fields_editable_by_participant)
 
     = form.input :agreement, as: :boolean, wrapper: :default
 

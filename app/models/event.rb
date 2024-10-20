@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   has_many :participants_with_personal_profiles, through: :approved_participations, source: :participant_with_personal_profile
   has_many :conflict_counts, -> { order(number_of_conflicts: :desc) }, foreign_key: :left_id
 
+  has_one_attached :resources_bundle
+
   has_many :feedbacks, as: :feedback_receiving
   has_many :feedbacks_with_comment, -> { where.not(comment: [nil, ""]) }, as: :feedback_receiving, class_name: 'Feedback'
   include FeedbackReceiving
@@ -67,6 +69,25 @@ class Event < ActiveRecord::Base
       description: description,
       notes: notes,
     }
+  end
+
+  def fields_editable_by_participant
+    if not id or conference.start_date > 7.days.from_now
+      [
+        :title, :subtitle, :track_id, :length, :language,
+        :abstract, :description, :notes,
+        :resources_bundle,
+        :agreement,
+        :event_type_id
+      ]
+    elsif conference.end_date > -14.days.from_now
+      [
+        :resources_bundle,
+        :agreement,
+      ]
+    else
+      []
+    end
   end
 
   def ranked?

@@ -2,12 +2,16 @@ module Public
   class EventsController < Public::ApplicationController
     before_action :authenticate_user!
 
+    def current_user_events
+      Event.joins(:conference, :proposition, :participations).where(conference: current_conference).where("propositions.proposer_id = ? OR participations.participant_id = ?", current_user.id, current_user.id)
+    end
+
     def index
-      @events = Event.joins(:conference, :proposition, :participations).where(conference: current_conference).where("propositions.proposer_id = ? OR participations.participant_id = ?", current_user.id, current_user.id)
+      @events = current_user_events
     end
 
     def edit
-      @event = Event.joins(:participations).find_by(id: params[:id], participations: {participant_id: current_user.id})
+      @event = current_user_events.find_by(id: params[:id])
     end
 
     def new
@@ -30,9 +34,9 @@ module Public
     end
 
     def update
-      @event = Event.joins(:participations).find_by(id: params[:id], participations: {participant_id: current_user.id})
+      @event = current_user_events.find_by(id: params[:id])
 
-      if @event.update(event_params)
+      if @event.fields_editable_by_participant && @event.update(event_params.permit(@event.fields_editable_by_participant))
         flash[:notice] = I18n.t("views.events.event_successfully_updated", event_type: @event.event_type.name.mb_chars.downcase)
         after_save_redirect
       else
@@ -56,9 +60,7 @@ module Public
 
     def event_params
       params.require(:event).permit(
-        :title, :subtitle, :track_id, :length, :language,
-        :abstract, :description, :notes, :agreement,
-        :event_type_id
+        Event.new.fields_editable_by_participant
       )
     end
 

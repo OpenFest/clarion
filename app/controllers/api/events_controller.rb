@@ -4,7 +4,7 @@ class Api::EventsController < Api::ApplicationController
   before_action :require_current_conference!
 
   def index
-    @events = current_conference.events.approved.joins(:proposition).includes(:participations)
+    @events = current_conference.events.approved.joins(:proposition).includes(:participations).with_attached_resources_bundle
   end
 
   def halfnarp_friendly

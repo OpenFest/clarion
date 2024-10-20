@@ -36,6 +36,9 @@
     - if @event.notes.present?
       h3 = Event.human_attribute_name :notes
       p = simple_format @event.notes
+    - if @event.resources_bundle.attached?
+      h3 = Event.human_attribute_name :resources_bundle
+      p = link_to @event.resources_bundle.filename, rails_blob_url(@event.resources_bundle.blob, disposition: "attachment")
   - if @conference.has_vote_results? or @conference.has_voting_endpoint?
     .col-md-3
       .panel.panel-info.panel-rank

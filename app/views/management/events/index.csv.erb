@@ -1,5 +1,5 @@
-<%- csv_headers = %w{id title subtitle type track language paticipants length status rank number_of_votes proposer_notes} -%>
+<%- csv_headers = %w{id title subtitle type track language participants length status rank number_of_votes abstract description proposer_notes resources_bundle} -%>
 <%= CSV.generate_line(csv_headers).html_safe -%>
 <%- @events.each do |event| -%>
-  <%= CSV.generate_line([event.id, event.title, event.subtitle, event.event_type.name, event.track.name, event.language, participant_names_with_emails(event).join(', '), event.length, event.status, event.rank, event.number_of_votes, event.notes]).html_safe -%>
+  <%= CSV.generate_line([event.id, event.title, event.subtitle, event.event_type.name, event.track.name, event.language, participant_names_with_emails(event).join(', '), event.length, event.status, event.rank, event.number_of_votes, event.abstract, event.description, event.notes, (rails_blob_url(event.resources_bundle, disposition: "attachment") if event.resources_bundle.attached?)]).html_safe -%>
 <%- end -%>
