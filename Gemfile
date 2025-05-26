@@ -30,8 +30,6 @@ gem "puma", group: :production
 
 gem "globalize"
 
-gem "yaml_db"
-
 gem "bootstrap-sass"
 gem "bootstrap-sass-extras"
 gem "bootswatch-rails"
@@ -40,10 +38,6 @@ gem "font-awesome-sass", "~> 4.6.2"
 
 gem "nested_form"
 gem "jquery-datatables-rails"
-# gem "morrisjs-rails"
-gem "raphael-rails"
-
-gem "copy_carrierwave_file"
 
 gem "jbuilder"
 
