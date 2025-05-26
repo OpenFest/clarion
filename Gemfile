@@ -9,8 +9,6 @@ gem "pg"
 
 gem "sass-rails"
 
-gem "uglifier"
-gem "coffee-rails"
 gem "jquery-rails"
 
 gem "slim-rails"
@@ -31,13 +29,11 @@ gem "puma", group: :production
 gem "globalize"
 
 gem "bootstrap-sass"
-gem "bootstrap-sass-extras"
 gem "bootswatch-rails"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 4.6.2"
 
 gem "nested_form"
-gem "jquery-datatables-rails"
 
 gem "jbuilder"
 
@@ -57,7 +53,6 @@ group :development do
   gem "guard-rspec" # Continuous testing with Guard
   gem "rails-erd"
   gem "pry-rails"
-  # gem 'hirb'
   gem "awesome_print"
   gem "better_errors"
   gem "binding_of_caller"
