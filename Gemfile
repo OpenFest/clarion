@@ -79,8 +79,6 @@ group :development, :test do
   gem "simplecov"
   gem "i18n-tasks"
 
-  gem "delorean"
-
   gem "standard"
 end
 
