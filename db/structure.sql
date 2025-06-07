@@ -1,7 +1,6 @@
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -888,7 +887,6 @@ CREATE TABLE public.volunteers (
     updated_at timestamp with time zone NOT NULL,
     conference_id integer,
     language character varying,
-    volunteer_team_id bigint,
     confirmation_token character varying,
     confirmed_at timestamp with time zone,
     approved_at timestamp with time zone,
@@ -1634,13 +1632,6 @@ CREATE UNIQUE INDEX index_volunteers_on_unique_id ON public.volunteers USING btr
 
 
 --
--- Name: index_volunteers_on_volunteer_team_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_volunteers_on_volunteer_team_id ON public.volunteers USING btree (volunteer_team_id);
-
-
---
 -- Name: index_volunteerships_on_volunteer_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1754,14 +1745,6 @@ ALTER TABLE ONLY public.volunteer_teams_volunteers
 
 ALTER TABLE ONLY public.halls
     ADD CONSTRAINT fk_rails_35c078cf97 FOREIGN KEY (conference_id) REFERENCES public.conferences(id) ON DELETE CASCADE;
-
-
---
--- Name: volunteers fk_rails_3d28a8e84e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.volunteers
-    ADD CONSTRAINT fk_rails_3d28a8e84e FOREIGN KEY (volunteer_team_id) REFERENCES public.volunteer_teams(id);
 
 
 --
@@ -1915,6 +1898,7 @@ ALTER TABLE ONLY public.conflict_counts
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20250607062627'),
 ('20241001115434'),
 ('20240923061535'),
 ('20240418161417'),
