@@ -210,7 +210,8 @@ CREATE TABLE public.conferences (
     planned_cfp_end_date date,
     vote_data_endpoint character varying,
     number_of_ballots_cast integer,
-    vote_data_updated_at timestamp with time zone
+    vote_data_updated_at timestamp with time zone,
+    cfp_visible boolean DEFAULT true
 );
 
 
@@ -1898,6 +1899,7 @@ ALTER TABLE ONLY public.conflict_counts
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20250607152410'),
 ('20250607062627'),
 ('20241001115434'),
 ('20240923061535'),

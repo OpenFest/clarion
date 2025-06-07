@@ -9,6 +9,6 @@ ul
 
 p = t :license_notice
 
-- if current_conference.call_for_participation.in_progress?
+- if current_conference.cfp_visible and current_conference.call_for_participation.in_progress?
   .centered.large
     = render partial: 'event_type', collection: current_conference.event_types
