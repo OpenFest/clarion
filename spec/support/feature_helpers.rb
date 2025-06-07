@@ -114,7 +114,7 @@ module FeatureHelpers
     fill_in Volunteer.human_attribute_name(:name), with: "Volunteer Foo"
     fill_in Volunteer.human_attribute_name(:email), with: "foo@example.com"
     fill_in Volunteer.human_attribute_name(:phone), with: "+359666666"
-    choose VolunteerTeam.first.name
+    check VolunteerTeam.first.name
 
     click_on I18n.t("helpers.submit.volunteer.create")
   end
