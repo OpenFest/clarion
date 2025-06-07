@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_view_paths
 
-  # TODO: make this get the domain from the database
-  # layout Proc.new { |controller| controller.request.host }
   layout "public/application"
 
   def self.default_url_options(options = {})
@@ -30,11 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_view_paths
-    # TODO: make this get the domain from the database
-    prepend_view_path "lib/initfest/views" if request.host =~ /openfest/
-    prepend_view_path "lib/initfest/views" if request.host =~ /example/
-    prepend_view_path "lib/initfest/views" if request.host =~ /^127\.0\.0/
-    prepend_view_path "lib/initfest/views" if request.host =~ /^localhost$/
+    prepend_view_path "lib/initfest/views"
   end
 
   protected

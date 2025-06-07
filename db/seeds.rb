@@ -10,6 +10,6 @@ User.create(
   password: "123qweASD",
   password_confirmation: "123qweASD",
   confirmed_at: Time.current,
-  admin: true
+  admin: true,
   owner: true
 )
