@@ -1,5 +1,9 @@
 class MigrateTimestampToTimestampTz < ActiveRecord::Migration[5.2]
   def up
+    unless ActiveRecord::Base.connection.adapter_name.downcase.to_sym == :postgresql then
+      return
+    end
+
     transaction do
       execute 'DROP VIEW "participants"'
       execute "ALTER TABLE call_for_participations ALTER opens_at TYPE timestamptz USING opens_at AT TIME ZONE 'UTC';"
