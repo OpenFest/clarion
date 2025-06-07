@@ -5,7 +5,9 @@ gem "bootsnap"
 gem "sprockets"
 
 gem "sqlite3"
-gem "pg"
+gem "pg" # Note: we can do this only for test/prod
+
+gem "erb"
 
 gem "sass-rails"
 
@@ -24,7 +26,6 @@ gem "simple_form"
 gem "phony"
 gem "phony_rails"
 
-gem "puma", group: :production
 
 gem "globalize"
 
@@ -45,33 +46,38 @@ gem "rqrcode"
 
 gem "draper"
 
-gem "icalendar", require: ['icalendar', 'icalendar/tzinfo']
+# gem "icalendar", require: ['icalendar', 'icalendar/tzinfo']
+gem "icalendar"
 
 group :development do
   gem "spring"
-  gem "spring-commands-rspec"
-  gem "guard-rspec" # Continuous testing with Guard
-  gem "rails-erd"
-  gem "pry-rails"
-  gem "awesome_print"
-  gem "better_errors"
-  gem "binding_of_caller"
+  # gem "rails-erd"
+  # gem "pry-rails"
+  # gem "awesome_print"
+  # gem "better_errors"
+  # gem "binding_of_caller"
+  # gem "i18n-tasks"
 end
 
 group :development, :test do
+  gem "spring-commands-rspec"
   gem "rspec-rails"
-  gem "faker"
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem "guard-rspec" # Continuous testing with Guard
 
-  gem "byebug"
-  gem "simplecov"
-  gem "i18n-tasks"
+  # gem "byebug" # Debugger
+  # gem "simplecov" # Coverage
 
-  gem "standard"
+  gem "standard" # Linter
 end
 
 group :test do
-  gem "database_cleaner"
+
+  gem "faker"
+  gem "capybara"
+  gem "selenium-webdriver"
   gem "factory_bot_rails"
+end
+
+group :production do
+  gem "puma"
 end
