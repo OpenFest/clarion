@@ -42,3 +42,15 @@ require 'rails_admin/config/fields/types/json'
 require 'rails_admin/config/fields/types/inet'
 require 'rails_admin/config/fields/types/uuid'
 require 'rails_admin/config/fields/types/citext'
+
+# make Zeitwerk not hate us
+module RailsAdmin
+  module Config
+    module Fields
+      module Types
+        class All
+        end
+      end
+    end
+  end
+end
