@@ -240,9 +240,6 @@ bg:
       participation:
         one: Участие
         other: Участия
-      volunteership:
-        one: доброволец
-        other: доброволци
       conference:
         one: "конференция"
         other: "конференции"

@@ -916,39 +916,6 @@ ALTER SEQUENCE public.volunteers_id_seq OWNED BY public.volunteers.id;
 
 
 --
--- Name: volunteerships; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.volunteerships (
-    id integer NOT NULL,
-    volunteer_team_id integer,
-    volunteer_id integer,
-    created_at timestamp with time zone NOT NULL,
-    updated_at timestamp with time zone NOT NULL
-);
-
-
---
--- Name: volunteerships_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.volunteerships_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: volunteerships_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.volunteerships_id_seq OWNED BY public.volunteerships.id;
-
-
---
 -- Name: active_storage_attachments id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1107,13 +1074,6 @@ ALTER TABLE ONLY public.volunteer_teams ALTER COLUMN id SET DEFAULT nextval('pub
 --
 
 ALTER TABLE ONLY public.volunteers ALTER COLUMN id SET DEFAULT nextval('public.volunteers_id_seq'::regclass);
-
-
---
--- Name: volunteerships id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.volunteerships ALTER COLUMN id SET DEFAULT nextval('public.volunteerships_id_seq'::regclass);
 
 
 --
@@ -1314,14 +1274,6 @@ ALTER TABLE ONLY public.volunteer_teams
 
 ALTER TABLE ONLY public.volunteers
     ADD CONSTRAINT volunteers_pkey PRIMARY KEY (id);
-
-
---
--- Name: volunteerships volunteerships_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.volunteerships
-    ADD CONSTRAINT volunteerships_pkey PRIMARY KEY (id);
 
 
 --
@@ -1633,20 +1585,6 @@ CREATE UNIQUE INDEX index_volunteers_on_unique_id ON public.volunteers USING btr
 
 
 --
--- Name: index_volunteerships_on_volunteer_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_volunteerships_on_volunteer_id ON public.volunteerships USING btree (volunteer_id);
-
-
---
--- Name: index_volunteerships_on_volunteer_team_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_volunteerships_on_volunteer_team_id ON public.volunteerships USING btree (volunteer_team_id);
-
-
---
 -- Name: volunteer_id_volunteer_team_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1805,27 +1743,11 @@ ALTER TABLE ONLY public.active_storage_variant_records
 
 
 --
--- Name: volunteerships fk_rails_9aba272a7d; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.volunteerships
-    ADD CONSTRAINT fk_rails_9aba272a7d FOREIGN KEY (volunteer_team_id) REFERENCES public.volunteer_teams(id);
-
-
---
 -- Name: volunteer_teams fk_rails_a006c125b0; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.volunteer_teams
     ADD CONSTRAINT fk_rails_a006c125b0 FOREIGN KEY (conference_id) REFERENCES public.conferences(id) ON DELETE CASCADE;
-
-
---
--- Name: volunteerships fk_rails_a1a3689a5c; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.volunteerships
-    ADD CONSTRAINT fk_rails_a1a3689a5c FOREIGN KEY (volunteer_id) REFERENCES public.users(id);
 
 
 --
@@ -1899,6 +1821,7 @@ ALTER TABLE ONLY public.conflict_counts
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20250608132353'),
 ('20250608123757'),
 ('20250607152410'),
 ('20250607062627'),
