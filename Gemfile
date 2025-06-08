@@ -49,6 +49,8 @@ gem "draper"
 # gem "icalendar", require: ['icalendar', 'icalendar/tzinfo']
 gem "icalendar"
 
+gem 'rails_admin', '~> 3.0'
+
 group :development do
   gem "spring"
   # gem "rails-erd"
@@ -82,3 +84,4 @@ group :production do
   gem "pg" # Note: we can do this only for test/prod
   gem "puma"
 end
+gem "sassc-rails"

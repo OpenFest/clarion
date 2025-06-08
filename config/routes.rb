@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   devise_for :users, controllers: {registrations: "registrations", confirmations: "confirmations"}
 
+  root to: "public/home#index"
+
   scope module: :public do
-    root to: "home#index"
     resource :personal_profile, path: "profile"
     resources :events do
       resources :feedback, controller: "event_feedbacks", only: [:new, :create]

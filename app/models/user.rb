@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :personal_profiles, dependent: :destroy
-  has_many :lectures
-  has_many :workshops
+#  has_many :lectures
+#  has_many :workshops
   has_many :propositions, foreign_key: :proposer_id
   has_many :events, through: :propositions, source: :proposable, source_type: "Event"
   has_many :feedbacks, through: :events
