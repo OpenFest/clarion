@@ -1899,6 +1899,7 @@ ALTER TABLE ONLY public.conflict_counts
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20250608123757'),
 ('20250607152410'),
 ('20250607062627'),
 ('20241001115434'),
