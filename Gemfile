@@ -4,8 +4,6 @@ gem "rails", "~> 7.1.0"
 gem "bootsnap"
 gem "sprockets"
 
-gem "sqlite3"
-gem "pg" # Note: we can do this only for test/prod
 
 gem "erb"
 
@@ -26,6 +24,8 @@ gem "simple_form"
 gem "phony"
 gem "phony_rails"
 
+# Required for generating image proxies
+gem "image_processing", "~> 1.2"
 
 gem "globalize"
 
@@ -60,6 +60,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "sqlite3"
   gem "spring-commands-rspec"
   gem "rspec-rails"
   gem "guard-rspec" # Continuous testing with Guard
@@ -71,7 +72,6 @@ group :development, :test do
 end
 
 group :test do
-
   gem "faker"
   gem "capybara"
   gem "selenium-webdriver"
@@ -79,5 +79,6 @@ group :test do
 end
 
 group :production do
+  gem "pg" # Note: we can do this only for test/prod
   gem "puma"
 end
