@@ -54,10 +54,6 @@ class Volunteer < ActiveRecord::Base
     VolunteerMailer.team_notification(self).deliver_later
   end
 
-  def send_notification_to_volunteer
-    VolunteerMailer.volunteer_notification(self).deliver_later
-  end
-
   def volunteer_teams_belong_to_conference
     conference_volunteer_teams = conference.volunteer_teams
     unless volunteer_teams.all? { |team| conference_volunteer_teams.include? team }
